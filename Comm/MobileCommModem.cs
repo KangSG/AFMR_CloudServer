@@ -147,19 +147,19 @@ namespace AFMR_CloudServer.Comm
 
             if (tokens[iToken] == "0")
             {
-                mobileData.ThrusterTrim = ThrusterVertical.OFF;
+                mobileData.ThrusterRotation = ThrusterRotation.OFF;
             }
             else if (tokens[iToken] == "1")
             {
-                mobileData.ThrusterTrim = ThrusterVertical.DOWN;
+                mobileData.ThrusterRotation = ThrusterRotation.LEFT;
             }
             else if (tokens[iToken] == "2")
             {
-                mobileData.ThrusterTrim = ThrusterVertical.UP;
+                mobileData.ThrusterRotation = ThrusterRotation.RIGHT;
             }
             else
             {
-                mobileData.ThrusterTrim = ThrusterVertical.NONE;
+                mobileData.ThrusterRotation = ThrusterRotation.NONE;
             }
             iToken++;
 

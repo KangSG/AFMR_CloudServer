@@ -279,7 +279,21 @@ namespace AFMR_CloudServer
             switch (mobileData.ThrusterHorizontal)
             {
                 case ThrusterHorizontal.OFF:
-                    lbMsThrusterHorizontal.Text = "정지";
+                    switch (mobileData.ThrusterRotation)
+                    {
+                        case ThrusterRotation.OFF:
+                            lbMsThrusterHorizontal.Text = "정지";
+                            break;
+                        case ThrusterRotation.LEFT:
+                            lbMsThrusterHorizontal.Text = "좌회전";
+                            break;
+                        case ThrusterRotation.RIGHT:
+                            lbMsThrusterHorizontal.Text = "우회전";
+                            break;
+                        default:
+                            lbMsThrusterHorizontal.Text = "X";
+                            break;
+                    }
                     break;
                 case ThrusterHorizontal.GO:
                     lbMsThrusterHorizontal.Text = "전진";
@@ -288,7 +302,7 @@ namespace AFMR_CloudServer
                     lbMsThrusterHorizontal.Text = "우전진";
                     break;
                 case ThrusterHorizontal.RIGHT:
-                    lbMsThrusterHorizontal.Text = "우회전";
+                    lbMsThrusterHorizontal.Text = "우이동";
                     break;
                 case ThrusterHorizontal.RIGHT_BACK:
                     lbMsThrusterHorizontal.Text = "우후진";
@@ -300,7 +314,7 @@ namespace AFMR_CloudServer
                     lbMsThrusterHorizontal.Text = "좌후진";
                     break;
                 case ThrusterHorizontal.LEFT:
-                    lbMsThrusterHorizontal.Text = "좌회전";
+                    lbMsThrusterHorizontal.Text = "좌이동";
                     break;
                 default:
                     lbMsThrusterHorizontal.Text = "X";
@@ -321,7 +335,7 @@ namespace AFMR_CloudServer
                 default:
                     lbMsThrusterVertical.Text = "X";
                     break;
-            }
+            }            
 
             switch (mobileData.AutoHeading)
             {
