@@ -17,6 +17,7 @@ namespace AFMR_CloudServer
         private bool isReceivedMobile = false;
         private bool isReceivedStation = false;
         private Point mouseDownPoint = new Point(0, 0);
+        private int counter = 0;
 
         public MonitoringForm()
         {
@@ -89,6 +90,22 @@ namespace AFMR_CloudServer
             {
                 btnStationAlert.BackColor = Color.Red;
             }
+
+            if (counter >= 25)
+            {
+                if (cbMsRovId.SelectedIndex >= 2)
+                {
+                    cbMsRovId.SelectedIndex = 0;
+                    cbSsRovId.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbMsRovId.SelectedIndex += 1;
+                    cbSsRovId.SelectedIndex += 1;                    
+                }
+                counter = 0;
+            }
+            counter++;
         }
         public void CommModemTimeoutNotify(object sender, CommEventArgs e)
         {
